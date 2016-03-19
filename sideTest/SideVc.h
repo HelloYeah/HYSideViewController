@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @interface SideVc : UITableViewController
+
+@property (nonatomic,copy)  void(^sideblock)();
 
 @end

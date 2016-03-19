@@ -10,22 +10,21 @@
 #import "UIViewController+Side.h"
 #import "SideVc.h"
 
-@interface ViewController ()
-
-@end
-
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"侧滑" style:UIBarButtonItemStylePlain target:self action:@selector(side)];
     
     SideVc * vc = [[SideVc alloc]init];
     self.sideView = vc.view;
     vc.view.frame = CGRectMake(0, 0, 200, self.view.bounds.size.height);
-      [self addChildViewController:vc];
-    
-  
+    [self addChildViewController:vc];
+    vc.sideblock = ^{
+        [self side];
+    };
     self.HYSideDirectionType = HYSideDirectionRight;
     
 }

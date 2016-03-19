@@ -20,9 +20,6 @@ typedef enum{
 /**     侧滑出来的View   */
 @property (weak,nonatomic) UIView * sideView;
 
-///**     一开始展现出来的View    */
-//@property (strong,nonatomic) UIView * mainPanelView;
-
 /**    侧滑的方向,也决定了sideView是在mainPanelView 的左边还是右边    */
 @property (assign,nonatomic) HYSideDirection HYSideDirectionType;
 

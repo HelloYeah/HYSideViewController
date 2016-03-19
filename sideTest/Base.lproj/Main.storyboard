@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="1100" y="321"/>
         </scene>
-        <!--NaviVC-->
+        <!--Navigation Controller-->
         <scene sceneID="Jab-ys-54g">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uiz-XP-khl" customClass="NaviVC" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uiz-XP-khl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MdE-Mi-SST">
