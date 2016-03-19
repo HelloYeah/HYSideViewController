@@ -39,14 +39,11 @@
     [self sideAnimateWithDuration:0.25];
 }
 
-
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-    [self side];
+    if (self.isSide) {
+        [self side];
+    }
 }
-
-
-
-
 
 @end

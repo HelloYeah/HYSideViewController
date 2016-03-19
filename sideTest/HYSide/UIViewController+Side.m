@@ -13,6 +13,7 @@ const  CGFloat HYNavigationBarHeight = 64;
 
 @implementation UIViewController (Side)
 
+//最开始的view
 static UIView * _mainView;
 
 #pragma mark - 通过运行时动态添加属性
@@ -34,22 +35,19 @@ static const char * sideViewKey = "sideView";
     return  objc_getAssociatedObject(self, sideViewKey);
 }
 
+
+#pragma mark - 侧滑方向
+
+static const char * sideDirectionTypeKey = "sideDirectionType";
+
 - (HYSideDirection)HYSideDirectionType{
     
-    return _HYSideDirectionType;
+    return  [objc_getAssociatedObject(self, sideDirectionTypeKey) intValue];
 }
 
-//侧滑方向
-static HYSideDirection _HYSideDirectionType;
-//侧滑出来的宽度
-static CGFloat _sideWidth;
-//目前是否已经滑出
-static bool _isSide;
-
 - (void)setHYSideDirectionType:(HYSideDirection)HYSideDirectionType{
-    
-    _HYSideDirectionType = HYSideDirectionType;
-    
+
+    objc_setAssociatedObject(self, sideDirectionTypeKey, @(HYSideDirectionType), OBJC_ASSOCIATION_ASSIGN);
     CGRect rect = self.sideView.bounds;
     
     
@@ -67,17 +65,36 @@ static bool _isSide;
         //左滑,则sideView被添加到view右边
         self.sideView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width , 0 , rect.size.width, rect.size.height);
     }
-    
+
 }
+
+#pragma mark - 是否侧滑
+//定义关联的Key
+static const char * isSideKey = "isSide";
+
+- (BOOL)isSide{
+    return  [objc_getAssociatedObject(self, isSideKey) integerValue];
+}
+
+
+- (void)setIsSide:(BOOL)isSide{
+    
+    objc_setAssociatedObject(self, isSideKey, @(isSide), OBJC_ASSOCIATION_ASSIGN);
+}
+
+
+//侧滑出来的宽度
+static CGFloat _sideWidth;
 
 - (void)sideAnimateWithDuration:(NSTimeInterval)duration{
     
-    if (_isSide) {
-        _isSide = NO;
+    if (self.isSide) {
+        NSLog(@"是否被滑出");
+        self.isSide = NO;
         [self hideSideViewWithDuration:(NSTimeInterval)duration];
         return;
     }
-   _isSide = YES;
+    self.isSide = YES;
     
 
     [UIView animateWithDuration:duration animations:^{
@@ -96,6 +113,8 @@ static bool _isSide;
         _mainView.transform = CGAffineTransformIdentity;
         self.sideView.transform = CGAffineTransformIdentity;
     }];
+    
+    
 }
 
 
