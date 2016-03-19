@@ -14,7 +14,7 @@
 4. isSide滑出状态,根据这个值调用sideAnimateWithDuration:,从而外界可以控制view的滑出和隐藏.
 
 
-######简书<http://www.jianshu.com/p/53bc00aa47d7>
+#####简书链接<http://www.jianshu.com/p/53bc00aa47d7>,欢迎关注
 ---
 
 * ##### 看一下UIViewController+Side分类的API接口
