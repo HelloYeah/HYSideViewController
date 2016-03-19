@@ -65,7 +65,7 @@ static bool _isSide;
         //左滑,滑动距离
         _sideWidth = -rect.size.width;
         //左滑,则sideView被添加到view右边
-        self.sideView.frame = CGRectMake( [UIScreen mainScreen].bounds.size.width , 0 , rect.size.width, rect.size.height);
+        self.sideView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width , 0 , rect.size.width, rect.size.height);
     }
     
 }
@@ -79,27 +79,14 @@ static bool _isSide;
     }
    _isSide = YES;
     
+
+    [UIView animateWithDuration:duration animations:^{
+        
+        _mainView.transform = CGAffineTransformMakeTranslation(_sideWidth, 0);;
+        
+        self.sideView.transform = CGAffineTransformMakeTranslation(_sideWidth, 0);
+    }];
     
-    if (self.HYSideDirectionType == HYSideDirectionLeft	 ) {
-        
-        //左滑动画
-        [UIView animateWithDuration:duration animations:^{
-            
-            _mainView.transform = CGAffineTransformMakeTranslation(-_sideWidth, 0);
-            
-            self.sideView.transform = CGAffineTransformMakeTranslation(-_sideWidth, 0);
-        }];
-        
-    }else{
-        
-        //右滑动画
-        [UIView animateWithDuration:duration animations:^{
-            
-            _mainView.transform = CGAffineTransformMakeTranslation(_sideWidth, 0);;
-            
-            self.sideView.transform = CGAffineTransformMakeTranslation(_sideWidth, 0);
-        }];
-    }
 }
 
 //侧滑时间
