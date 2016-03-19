@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F825012A1C9D1C7E00150AE3 /* Objective-C.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F82501291C9D1C7E00150AE3 /* Objective-C.gitignore */; };
 		F8E423EC1C9BDA64005B8AE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E423EB1C9BDA64005B8AE7 /* main.m */; };
 		F8E423EF1C9BDA64005B8AE7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E423EE1C9BDA64005B8AE7 /* AppDelegate.m */; };
 		F8E423F21C9BDA64005B8AE7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E423F11C9BDA64005B8AE7 /* ViewController.m */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F82501291C9D1C7E00150AE3 /* Objective-C.gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Objective-C.gitignore"; sourceTree = "<group>"; };
 		F8E423E71C9BDA64005B8AE7 /* sideTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sideTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E423EB1C9BDA64005B8AE7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F8E423ED1C9BDA64005B8AE7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		F8E423EA1C9BDA64005B8AE7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F82501291C9D1C7E00150AE3 /* Objective-C.gitignore */,
 				F8E423EB1C9BDA64005B8AE7 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -266,6 +269,7 @@
 			files = (
 				F8E423FA1C9BDA64005B8AE7 /* LaunchScreen.storyboard in Resources */,
 				F8E423F71C9BDA64005B8AE7 /* Assets.xcassets in Resources */,
+				F825012A1C9D1C7E00150AE3 /* Objective-C.gitignore in Resources */,
 				F8E423F51C9BDA64005B8AE7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
