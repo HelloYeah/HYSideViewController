@@ -22,13 +22,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="805" y="250"/>
+            <point key="canvasLocation" x="1337" y="250"/>
         </scene>
         <!--第一个-->
         <scene sceneID="Jab-ys-54g">
             <objects>
                 <navigationController title="第一个" automaticallyAdjustsScrollViewInsets="NO" id="Uiz-XP-khl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="KRC-Jd-dL7"/>
+                    <tabBarItem key="tabBarItem" title="第一个" id="KRC-Jd-dL7"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MdE-Mi-SST">
@@ -47,7 +47,7 @@
         <!--第二个-->
         <scene sceneID="pRM-tt-Itj">
             <objects>
-                <viewController title="第二个" id="eyZ-2P-tmM" sceneMemberID="viewController">
+                <viewController title="第二个" id="eyZ-2P-tmM" customClass="TwoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Df8-VM-IbF"/>
                         <viewControllerLayoutGuide type="bottom" id="mNC-bf-xBu"/>
@@ -57,11 +57,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.86274509799999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="ZFL-FJ-rOc"/>
+                    <navigationItem key="navigationItem" title="第二个" id="E91-cs-Sgr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOM-6O-FTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="455" y="780"/>
+            <point key="canvasLocation" x="987" y="780"/>
         </scene>
         <!--第三个-->
         <scene sceneID="8Hd-Yj-8Zd">
@@ -76,7 +76,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.47843137250000001" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="b1I-L9-j8V"/>
+                    <tabBarItem key="tabBarItem" title="第三个" id="b1I-L9-j8V"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l31-sG-wGk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -94,13 +94,32 @@
                     </tabBar>
                     <connections>
                         <segue destination="Uiz-XP-khl" kind="relationship" relationship="viewControllers" id="jE5-TJ-07t"/>
-                        <segue destination="eyZ-2P-tmM" kind="relationship" relationship="viewControllers" id="cBX-j5-pxB"/>
+                        <segue destination="pD2-Ql-xlW" kind="relationship" relationship="viewControllers" id="cBX-j5-pxB"/>
                         <segue destination="kso-Zq-ykp" kind="relationship" relationship="viewControllers" id="BbF-wk-gmv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZC-9l-Dtu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-153" y="763"/>
+        </scene>
+        <!--第二个-->
+        <scene sceneID="SCs-aL-Q2N">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pD2-Ql-xlW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="第二个" id="ZFL-FJ-rOc"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uno-gH-s8b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eyZ-2P-tmM" kind="relationship" relationship="rootViewController" id="NB1-xp-oKL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="coh-kA-V6R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="455" y="780"/>
         </scene>
     </scenes>
 </document>

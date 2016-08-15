@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B42A2B421D61A7D10086ED33 /* HYSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B42A2B411D61A7D10086ED33 /* HYSideViewController.m */; };
+		B42A2B481D61AC300086ED33 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B42A2B471D61AC300086ED33 /* TwoViewController.m */; };
 		F825012A1C9D1C7E00150AE3 /* Objective-C.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F82501291C9D1C7E00150AE3 /* Objective-C.gitignore */; };
 		F8E423EC1C9BDA64005B8AE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E423EB1C9BDA64005B8AE7 /* main.m */; };
 		F8E423EF1C9BDA64005B8AE7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E423EE1C9BDA64005B8AE7 /* AppDelegate.m */; };
@@ -38,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B42A2B401D61A7D10086ED33 /* HYSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYSideViewController.h; sourceTree = "<group>"; };
+		B42A2B411D61A7D10086ED33 /* HYSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYSideViewController.m; sourceTree = "<group>"; };
+		B42A2B461D61AC300086ED33 /* TwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
+		B42A2B471D61AC300086ED33 /* TwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
 		F82501291C9D1C7E00150AE3 /* Objective-C.gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Objective-C.gitignore"; sourceTree = "<group>"; };
 		F8E423E71C9BDA64005B8AE7 /* sideTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sideTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E423EB1C9BDA64005B8AE7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -114,6 +120,8 @@
 				F8E423EE1C9BDA64005B8AE7 /* AppDelegate.m */,
 				F8E423F01C9BDA64005B8AE7 /* ViewController.h */,
 				F8E423F11C9BDA64005B8AE7 /* ViewController.m */,
+				B42A2B461D61AC300086ED33 /* TwoViewController.h */,
+				B42A2B471D61AC300086ED33 /* TwoViewController.m */,
 				F8E4242A1C9BDF89005B8AE7 /* SideVc.h */,
 				F8E4242B1C9BDF89005B8AE7 /* SideVc.m */,
 				F8E423F31C9BDA64005B8AE7 /* Main.storyboard */,
@@ -157,6 +165,8 @@
 			children = (
 				F8E424211C9BDA9B005B8AE7 /* UIViewController+Side.h */,
 				F8E424221C9BDA9B005B8AE7 /* UIViewController+Side.m */,
+				B42A2B401D61A7D10086ED33 /* HYSideViewController.h */,
+				B42A2B411D61A7D10086ED33 /* HYSideViewController.m */,
 			);
 			path = HYSide;
 			sourceTree = "<group>";
@@ -295,10 +305,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B42A2B481D61AC300086ED33 /* TwoViewController.m in Sources */,
 				F8E4242C1C9BDF89005B8AE7 /* SideVc.m in Sources */,
 				F8E423F21C9BDA64005B8AE7 /* ViewController.m in Sources */,
 				F8E424231C9BDA9B005B8AE7 /* UIViewController+Side.m in Sources */,
 				F8E423EF1C9BDA64005B8AE7 /* AppDelegate.m in Sources */,
+				B42A2B421D61A7D10086ED33 /* HYSideViewController.m in Sources */,
 				F8E423EC1C9BDA64005B8AE7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
