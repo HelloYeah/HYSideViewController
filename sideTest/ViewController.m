@@ -34,6 +34,11 @@
 - (void)side{
     
     [self sideAnimateDuration:0.25];
+    if(self.navigationController.navigationBar.barStyle == UIBarStyleBlack){
+        self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    }else{
+        self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
