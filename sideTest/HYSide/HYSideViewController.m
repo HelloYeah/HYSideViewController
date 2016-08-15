@@ -64,7 +64,6 @@
     
     if (pan.state == UIGestureRecognizerStateChanged) {
         CGPoint point = [self.view convertPoint:self.view.frame.origin toView:[UIApplication sharedApplication].keyWindow];
-        NSLog(@"%@--%f",NSStringFromCGPoint(point),(self.view.transform.tx));
         if (!self.isSide) {
             if(_sideDirectionType == HYSideDirectionRight && point.x >= 0 && translation.x < self.sideView.bounds.size.width && translation.x >= 0){
                 self.sideView.hidden = NO;
@@ -72,18 +71,14 @@
             }
         }else {
             if(_sideDirectionType == HYSideDirectionRight && point.x >= 0  && translation.x <= 0){
-                self.sideView.hidden = NO;
-                [self sideDistance:translation.x];
+                [self sideDistance:(self.sideView.bounds.size.width + translation.x)];
             }
-            
         }
-        
         
     }else if (pan.state == UIGestureRecognizerStateEnded) {
         CGPoint point = [self.view convertPoint:self.view.frame.origin toView:[UIApplication sharedApplication].keyWindow];
         NSLog(@"%@--%f",NSStringFromCGPoint(point),(self.view.transform.tx));
         if(_sideDirectionType == HYSideDirectionRight && point.x >= 0 && point.x > [UIScreen mainScreen].bounds.size.width * 0.5){
-//            self.sideView.hidden = NO;
             [self sideDistance:self.sideView.bounds.size.width];
             [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
             self.isSide = YES;
@@ -91,6 +86,8 @@
             [UIView animateWithDuration:0.25 animations:^{
                 [self sideDistance:0];
             }];
+            [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+            self.isSide = NO;
         }
     }
 }
