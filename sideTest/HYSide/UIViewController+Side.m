@@ -73,7 +73,7 @@ static const char * isSideKey = "isSide";
 }
 
 #pragma mark - 对外的接口
-- (void)sideAnimateWithDuration:(NSTimeInterval)duration{
+- (void)sideAnimateDuration:(NSTimeInterval)duration{
     
     if (self.isSide) {
         NSLog(@"是否被滑出");

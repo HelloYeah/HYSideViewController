@@ -27,13 +27,13 @@
     //4.侧滑控制器 - 退出侧滑状态的代码块
     __weak typeof(self) weakSelf = self;
     vc.sideblock = ^{
-        [weakSelf sideAnimateWithDuration:0.25];
+        [weakSelf sideAnimateDuration:0.25];
     };
 }
 
 - (void)side{
     
-    [self sideAnimateWithDuration:0.25];
+    [self sideAnimateDuration:0.25];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
