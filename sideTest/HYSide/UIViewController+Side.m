@@ -82,11 +82,14 @@ static const char * isSideKey = "isSide";
             for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
                 view.transform = CGAffineTransformIdentity;
             }
+        }completion:^(BOOL finished) {
+            self.sideView.hidden = YES;
         }];
+        
         return;
     }
     self.isSide = YES;
-    
+    self.sideView.hidden = NO;
     CGFloat _sideWidth = (self.sideDirectionType == HYSideDirectionRight) ? self.sideView.frame.size.width : - self.sideView.frame.size.width;
     [UIView animateWithDuration:duration animations:^{
         for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
