@@ -18,9 +18,6 @@
 
 @implementation UIViewController (Side)
 
-//最开始的view,侧滑前展示的View
-static UIView * _mainView;
-
 #pragma mark - 通过运行时动态添加属性
 #pragma mark  设置侧滑出来的View
 //定义关联的Key
@@ -32,14 +29,6 @@ static const char * sideViewKey = "sideView";
     [[UIApplication sharedApplication].keyWindow addSubview:sideView];
     
     objc_setAssociatedObject(self, sideViewKey, sideView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
-    if (self.tabBarController) {
-        _mainView = self.tabBarController.view;
-    }else if(self.navigationController){
-        _mainView = self.navigationController.view;
-    }else{
-        _mainView = self.view;
-    }
 }
 
 - (UIView *)sideView{
@@ -62,16 +51,10 @@ static const char * sideDirectionTypeKey = "sideDirectionType";
     CGRect rect = self.sideView.bounds;
     CGFloat _sideWidth = self.sideView.bounds.size.width;
     if (sideDirectionType == HYSideDirectionRight) {
-    
-        //右滑,滑动距离
         _sideWidth = rect.size.width;
-        //右滑,则sideView被添加到view左边
         self.sideView.frame = CGRectMake(- rect.size.width, 0, rect.size.width, [UIScreen mainScreen].bounds.size.height);
     }else{
-        
-        //左滑,滑动距离
         _sideWidth = - rect.size.width;
-        //左滑,则sideView被添加到view右边
         self.sideView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width , 0 , rect.size.width, [UIScreen mainScreen].bounds.size.height);
     }
 }
@@ -102,17 +85,18 @@ static const char * isSideKey = "isSide";
     
     CGFloat _sideWidth = (self.sideDirectionType == HYSideDirectionRight) ? self.sideView.frame.size.width : - self.sideView.frame.size.width;
     [UIView animateWithDuration:duration animations:^{
-        
-        _mainView.transform = CGAffineTransformMakeTranslation(_sideWidth, 0);
-        self.sideView.transform = CGAffineTransformMakeTranslation(_sideWidth, 0);
+        for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
+            view.transform = CGAffineTransformMakeTranslation(_sideWidth, 0);
+        }
     }];
 }
 
 - (void)hideSideViewWithDuration:(NSTimeInterval)duration{
     
     [UIView animateWithDuration:duration animations:^{
-        _mainView.transform = CGAffineTransformIdentity;
-        self.sideView.transform = CGAffineTransformIdentity;
+        for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
+            view.transform = CGAffineTransformIdentity;
+        }
     }];
 }
 

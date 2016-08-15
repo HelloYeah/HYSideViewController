@@ -16,19 +16,18 @@
     
     [super viewDidLoad];
     
-    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"侧滑" style:UIBarButtonItemStylePlain target:self action:@selector(side)];
     
     //1.创建侧滑出来的控制机器
     SideVc * vc = [[SideVc alloc]init];
     //2.设置侧滑出来的View的宽度,小于屏幕宽度
-    vc.view.frame = CGRectMake(0, 0, 100, 0);
+    vc.view.frame = CGRectMake(0, 0, 250, 0);
     //3.添加侧滑出来的控制器 以及 侧滑方向
     [self setSideVC:vc SideDirection:HYSideDirectionLeft];
-    
-    //设置侧滑view的block,什么时候隐藏侧滑的view,由
+    //4.侧滑控制器 - 退出侧滑状态的代码块
+    __weak typeof(self) weakSelf = self;
     vc.sideblock = ^{
-        [self side];
+        [weakSelf sideAnimateWithDuration:0.25];
     };
 }
 
