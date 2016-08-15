@@ -25,6 +25,12 @@
     [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(hy_panGesture:)]];
 }
 
+- (void)viewDidDisappear:(BOOL)animated{
+    
+    [super viewDidDisappear:animated];
+    self.sideView.hidden = YES;
+}
+
 - (void)setSideView:(UIView *)sideView{
     
     _sideView = sideView;
@@ -58,16 +64,44 @@
     
     if (pan.state == UIGestureRecognizerStateChanged) {
         CGPoint point = [self.view convertPoint:self.view.frame.origin toView:[UIApplication sharedApplication].keyWindow];
-        NSLog(@"%@",NSStringFromCGPoint(point));
-        [self sideDistance:translation.x];
-    }
-    if (pan.state == UIGestureRecognizerStateEnded) {
-//        self.view
+        NSLog(@"%@--%f",NSStringFromCGPoint(point),(self.view.transform.tx));
+        if (!self.isSide) {
+            if(_sideDirectionType == HYSideDirectionRight && point.x >= 0 && translation.x < self.sideView.bounds.size.width && translation.x >= 0){
+                self.sideView.hidden = NO;
+                [self sideDistance:translation.x];
+            }
+        }else {
+            if(_sideDirectionType == HYSideDirectionRight && point.x >= 0  && translation.x <= 0){
+                self.sideView.hidden = NO;
+                [self sideDistance:translation.x];
+            }
+            
+        }
+        
+        
+    }else if (pan.state == UIGestureRecognizerStateEnded) {
+        CGPoint point = [self.view convertPoint:self.view.frame.origin toView:[UIApplication sharedApplication].keyWindow];
+        NSLog(@"%@--%f",NSStringFromCGPoint(point),(self.view.transform.tx));
+        if(_sideDirectionType == HYSideDirectionRight && point.x >= 0 && point.x > [UIScreen mainScreen].bounds.size.width * 0.5){
+//            self.sideView.hidden = NO;
+            [self sideDistance:self.sideView.bounds.size.width];
+            [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+            self.isSide = YES;
+        }else{
+            [UIView animateWithDuration:0.25 animations:^{
+                [self sideDistance:0];
+            }];
+        }
     }
 }
 
 - (void)sideAnimateDuration:(NSTimeInterval)duration{
     
+    if([UIApplication sharedApplication].statusBarStyle == UIStatusBarStyleDefault){
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    }else{
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    }
     if (self.isSide) {
         NSLog(@"是否被滑出");
         self.isSide = NO;

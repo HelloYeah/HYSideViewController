@@ -36,11 +36,7 @@
 
 - (void)side{
     
-    if([UIApplication sharedApplication].statusBarStyle == UIStatusBarStyleDefault){
-        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    }else{
-        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
-    }
+ 
     [self sideAnimateDuration:0.25];
 }
 
