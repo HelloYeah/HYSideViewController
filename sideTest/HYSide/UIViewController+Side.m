@@ -11,9 +11,16 @@
 //导航条高度
 const  CGFloat HYNavigationBarHeight = 64;
 
+@interface UIViewController (side)
+/**   设置侧滑出来的View   */
+@property (weak,nonatomic) UIView * sideView;
+/**    设置侧滑的方向,也决定了sideView是在mainPanelView 的左边还是右边    */
+@property (assign,nonatomic) HYSideDirection sideDirectionType;
+@end
+
 @implementation UIViewController (Side)
 
-//最开始的view
+//最开始的view,侧滑前展示的View
 static UIView * _mainView;
 
 #pragma mark - 通过运行时动态添加属性
@@ -21,14 +28,21 @@ static UIView * _mainView;
 //定义关联的Key
 static const char * sideViewKey = "sideView";
 
+//将需要侧滑出来的View添加到keyWindow上.
 - (void)setSideView:(UIView *)sideView{
+    
     
     [[UIApplication sharedApplication].keyWindow addSubview:sideView];
     
     objc_setAssociatedObject(self, sideViewKey, sideView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    _mainView = self.navigationController?self.navigationController.view:self.view;
-    
+    if (self.tabBarController) {
+        _mainView = self.tabBarController.view;
+    }else if(self.navigationController){
+        _mainView = self.navigationController.view;
+    }else{
+        _mainView = self.view;
+    }
 }
 
 - (UIView *)sideView{
@@ -40,22 +54,22 @@ static const char * sideViewKey = "sideView";
 
 static const char * sideDirectionTypeKey = "sideDirectionType";
 
-- (HYSideDirection)HYSideDirectionType{
+- (HYSideDirection)sideDirectionType{
     
     return  [objc_getAssociatedObject(self, sideDirectionTypeKey) intValue];
 }
 
-- (void)setHYSideDirectionType:(HYSideDirection)HYSideDirectionType{
 
-    objc_setAssociatedObject(self, sideDirectionTypeKey, @(HYSideDirectionType), OBJC_ASSOCIATION_ASSIGN);
+//在设置好侧滑类型后,再设置需要侧滑出来View的frame
+- (void)setSideDirectionType:(HYSideDirection)sideDirectionType{
+
+    objc_setAssociatedObject(self, sideDirectionTypeKey, @(sideDirectionType), OBJC_ASSOCIATION_ASSIGN);
+    
     CGRect rect = self.sideView.bounds;
+    if (sideDirectionType == HYSideDirectionRight) {
     
-    
-    if (HYSideDirectionType == HYSideDirectionRight) {
-        
         //右滑,滑动距离
         _sideWidth = rect.size.width;
-        
         //右滑,则sideView被添加到view左边
         self.sideView.frame = CGRectMake(- rect.size.width, 0, rect.size.width, [UIScreen mainScreen].bounds.size.height);
     }else{
@@ -63,7 +77,7 @@ static const char * sideDirectionTypeKey = "sideDirectionType";
         //左滑,滑动距离
         _sideWidth = -rect.size.width;
         //左滑,则sideView被添加到view右边
-        self.sideView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width , 0 , rect.size.width, rect.size.height);
+        self.sideView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width , 0 , rect.size.width, [UIScreen mainScreen].bounds.size.height);
     }
 
 }
@@ -99,8 +113,7 @@ static CGFloat _sideWidth;
 
     [UIView animateWithDuration:duration animations:^{
         
-        _mainView.transform = CGAffineTransformMakeTranslation(_sideWidth, 0);;
-        
+        _mainView.transform = CGAffineTransformMakeTranslation(_sideWidth, 0);
         self.sideView.transform = CGAffineTransformMakeTranslation(_sideWidth, 0);
     }];
     
@@ -114,9 +127,13 @@ static CGFloat _sideWidth;
         self.sideView.transform = CGAffineTransformIdentity;
     }];
     
-    
 }
 
+- (void)setSideVC:(UIViewController *)sideVC SideDirection:(HYSideDirection)sideDirectionType{
 
+    self.sideView = sideVC.view;
+    self.sideDirectionType = sideDirectionType;
+    [self addChildViewController:sideVC];
+}
 
 @end

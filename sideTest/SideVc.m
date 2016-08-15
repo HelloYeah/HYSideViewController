@@ -13,9 +13,7 @@
 - (void)viewDidLoad{
     
     [super viewDidLoad];
-    
- 
-    
+
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"sideCell"];
 }
 
@@ -27,7 +25,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"sideCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor blueColor];
+    cell.backgroundColor = [UIColor orangeColor];
     cell.textLabel.text = [NSString stringWithFormat:@"我是第%ld行",indexPath.row];
     return cell;
 }
