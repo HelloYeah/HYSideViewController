@@ -78,7 +78,11 @@ static const char * isSideKey = "isSide";
     if (self.isSide) {
         NSLog(@"是否被滑出");
         self.isSide = NO;
-        [self hideSideViewWithDuration:(NSTimeInterval)duration];
+        [UIView animateWithDuration:duration animations:^{
+            for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
+                view.transform = CGAffineTransformIdentity;
+            }
+        }];
         return;
     }
     self.isSide = YES;
@@ -91,14 +95,7 @@ static const char * isSideKey = "isSide";
     }];
 }
 
-- (void)hideSideViewWithDuration:(NSTimeInterval)duration{
-    
-    [UIView animateWithDuration:duration animations:^{
-        for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
-            view.transform = CGAffineTransformIdentity;
-        }
-    }];
-}
+
 
 - (void)setSideVC:(UIViewController *)sideVC SideDirection:(HYSideDirection)sideDirectionType{
 
