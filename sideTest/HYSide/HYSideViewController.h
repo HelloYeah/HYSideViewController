@@ -19,10 +19,8 @@ typedef enum{
 @property (assign,nonatomic) BOOL isSide;
 /** 侧滑并设置侧滑动画时间 */
 - (void)sideAnimateDuration:(NSTimeInterval)duration SideDirection:(HYSideDirection)sideDirectionType;
-/** 设置侧滑控制器 侧滑方向 */
-//- (void)setSideVC:(UIViewController *)sideVC SideDirection:(HYSideDirection)sideDirectionType;
-
+/** 设置左侧的控制器 */
 - (void)setLeftSideVC:(UIViewController *)leftSideVC;
-
+/** 设置右侧的控制器 */
 - (void)setRightSideVC:(UIViewController *)rightSideVC;
 @end

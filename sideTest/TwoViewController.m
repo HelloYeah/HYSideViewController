@@ -10,26 +10,22 @@
 #import "SideVc.h"
 #import "RightSideVC.h"
 
-@interface TwoViewController ()
-
-@end
-
 @implementation TwoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"向左侧滑" style:UIBarButtonItemStylePlain target:self action:@selector(rightSide)];
-    //创建侧滑出来的控制机器
+    //创建侧滑出来的控制器
     SideVc * vc = [[SideVc alloc]init];
     //设置侧滑出来的View的宽度,小于屏幕宽度
     vc.view.frame = CGRectMake(0, 0, 250, 0);
-    //添加侧滑出来的控制器 以及 侧滑方向
+    //设置左侧的控制器
     [self setLeftSideVC:vc];
     //侧滑控制器 - 退出侧滑状态的代码块
     __weak typeof(self) weakSelf = self;
     vc.exitLeftSideblock = ^{
-        [weakSelf sideAnimateDuration:0.25 SideDirection:HYSideDirectionLeft];
+        [weakSelf rightSide];
     };
     
     //设置向右侧滑
@@ -38,10 +34,9 @@
     vc1.view.frame = CGRectMake(0, 0, 250, 0);
     [self setRightSideVC:vc1];
     vc1.exitRightSideblock = ^{
-        [weakSelf sideAnimateDuration:0.25 SideDirection:HYSideDirectionRight];
+        [weakSelf leftSide];
     };
 }
-
 
 - (void)rightSide{
     
