@@ -15,8 +15,6 @@ typedef enum{
 } HYSideDirection;
 
 @interface HYSideViewController : UIViewController
-/** 滑出状态 */
-@property (assign,nonatomic) BOOL isSide;
 /** 侧滑并设置侧滑动画时间 */
 - (void)sideAnimateDuration:(NSTimeInterval)duration SideDirection:(HYSideDirection)sideDirectionType;
 /** 设置左侧的控制器 */

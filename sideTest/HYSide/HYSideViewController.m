@@ -14,6 +14,7 @@
 @property (nonatomic,strong) UIViewController * leftSideVC; //左侧的控制器
 @property (nonatomic,strong) UIViewController * rightSideVC; //右侧的控制器
 @property (assign,nonatomic) HYSideDirection sideDirectionType; //侧滑的方向
+@property (assign,nonatomic) BOOL isSide; //滑出状态
 @end
 
 @implementation HYSideViewController
