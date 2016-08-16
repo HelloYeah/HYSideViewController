@@ -1,4 +1,4 @@
-# HYSideCatagory
+# HYSideViewController
 
 ##导读
 
