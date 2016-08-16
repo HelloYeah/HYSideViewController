@@ -8,7 +8,7 @@
 
 #import "HYSideViewController.h"
 
-@interface HYSideViewController ()
+@interface HYSideViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic,strong) UIView * leftSideView; //左侧滑出的View
 @property (nonatomic,strong) UIView * rightSideView; //右侧划出的View
 @property (nonatomic,strong) UIViewController * leftSideVC; //左侧的控制器
@@ -23,6 +23,9 @@
     
     [super viewDidLoad];
     [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(hy_panGesture:)]];
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hy_tapGesture:)];
+    [self.view addGestureRecognizer:tap];
+    tap.delegate = self;
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -37,6 +40,12 @@
 }
 
 #pragma mark - 内部方法
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
+        return YES;
+    }
+    return YES;
+}
 - (UIView *)leftSideView{
     
     return self.leftSideVC.view;
@@ -45,6 +54,10 @@
 - (UIView *)rightSideView{
     
     return self.rightSideVC.view;
+}
+
+- (void)hy_tapGesture:(UITapGestureRecognizer *)tap{
+    [self sideAnimateDuration:0.25 SideDirection:_sideDirectionType];
 }
 
 - (void)hy_panGesture:(UIPanGestureRecognizer *)pan{
@@ -130,7 +143,6 @@
         [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     }
     if (self.isSide) {
-        NSLog(@"是否被滑出");
         self.isSide = NO;
         [UIView animateWithDuration:duration animations:^{
             for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
@@ -178,6 +190,5 @@
     sideWidth = rect.size.width;
     self.rightSideView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width , 0 , rect.size.width, [UIScreen mainScreen].bounds.size.height);;
 }
-
 
 @end
