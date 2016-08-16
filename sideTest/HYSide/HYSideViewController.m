@@ -63,7 +63,12 @@ static CGFloat const kSideDistanceRatio = 0.55; // 滑出0.55倍View的宽度时
 }
 
 - (void)hy_tapGesture:(UITapGestureRecognizer *)tap{
-    [self sideAnimateDuration:0.25 SideDirection:_sideDirectionType];
+    
+    if (self.isSide) {
+        [self sideAnimateDuration:0.25 SideDirection:_sideDirectionType];
+        self.isSide = NO;
+    }
+    
 }
 
 - (void)hy_panGesture:(UIPanGestureRecognizer *)pan{
@@ -190,7 +195,7 @@ static CGFloat const kSideDistanceRatio = 0.55; // 滑出0.55倍View的宽度时
     CGRect rect = self.rightSideView.bounds;
     CGFloat sideWidth = self.rightSideView.bounds.size.width;
     sideWidth = rect.size.width;
-    self.rightSideView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width , 0 , rect.size.width, [UIScreen mainScreen].bounds.size.height);;
+    self.rightSideView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width , 0 , rect.size.width, [UIScreen mainScreen].bounds.size.height);
 }
 
 @end

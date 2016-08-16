@@ -8,7 +8,7 @@
         <!--第一个-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="第一个" id="BYZ-38-t0r" customClass="TwoViewController" sceneMemberID="viewController">
+                <viewController title="第一个" id="BYZ-38-t0r" customClass="OneViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -66,7 +66,7 @@
         <!--第三个-->
         <scene sceneID="8Hd-Yj-8Zd">
             <objects>
-                <viewController title="第三个" id="kso-Zq-ykp" sceneMemberID="viewController">
+                <viewController title="第三个" id="kso-Zq-ykp" customClass="ThreeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aKI-EH-xnl"/>
                         <viewControllerLayoutGuide type="bottom" id="FST-XL-yzF"/>
@@ -76,11 +76,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.47843137250000001" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="第三个" id="b1I-L9-j8V"/>
+                    <navigationItem key="navigationItem" title="第三个" id="2cs-4z-Zte"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l31-sG-wGk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="455" y="1383"/>
+            <point key="canvasLocation" x="987" y="1383"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="I2I-ft-bkL">
@@ -95,7 +95,7 @@
                     <connections>
                         <segue destination="Uiz-XP-khl" kind="relationship" relationship="viewControllers" id="jE5-TJ-07t"/>
                         <segue destination="pD2-Ql-xlW" kind="relationship" relationship="viewControllers" id="cBX-j5-pxB"/>
-                        <segue destination="kso-Zq-ykp" kind="relationship" relationship="viewControllers" id="BbF-wk-gmv"/>
+                        <segue destination="qWI-tF-CbO" kind="relationship" relationship="viewControllers" id="BbF-wk-gmv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZC-9l-Dtu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -120,6 +120,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="coh-kA-V6R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="455" y="780"/>
+        </scene>
+        <!--第三个-->
+        <scene sceneID="rbk-Jt-cmr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qWI-tF-CbO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="第三个" id="b1I-L9-j8V"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RlI-Na-27d">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kso-Zq-ykp" kind="relationship" relationship="rootViewController" id="sgY-IZ-0n8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XAm-0k-c0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="455" y="1383"/>
         </scene>
     </scenes>
 </document>

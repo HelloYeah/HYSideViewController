@@ -6,9 +6,9 @@
 //  Copyright © 2016年 HelloYeah. All rights reserved.
 //
 
-#import "SideVc.h"
+#import "LeftSideVC.h"
 
-@implementation SideVc
+@implementation LeftSideVC
 
 - (void)viewDidLoad{
     

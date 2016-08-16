@@ -10,7 +10,7 @@
 
 
 
-@interface SideVc : UITableViewController
+@interface LeftSideVC : UITableViewController
 
 @property (nonatomic,copy)  void(^exitLeftSideblock)();
 
