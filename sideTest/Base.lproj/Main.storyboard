@@ -8,7 +8,7 @@
         <!--第一个-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="第一个" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController title="第一个" id="BYZ-38-t0r" customClass="TwoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1337" y="250"/>
+            <point key="canvasLocation" x="840" y="219"/>
         </scene>
         <!--第一个-->
         <scene sceneID="Jab-ys-54g">

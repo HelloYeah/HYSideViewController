@@ -9,16 +9,15 @@
 /* Begin PBXBuildFile section */
 		B42A2B421D61A7D10086ED33 /* HYSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B42A2B411D61A7D10086ED33 /* HYSideViewController.m */; };
 		B42A2B481D61AC300086ED33 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B42A2B471D61AC300086ED33 /* TwoViewController.m */; };
+		B45FC9E31D62B50A00CD6FD5 /* RightSideVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B45FC9E21D62B50A00CD6FD5 /* RightSideVC.m */; };
 		F825012A1C9D1C7E00150AE3 /* Objective-C.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F82501291C9D1C7E00150AE3 /* Objective-C.gitignore */; };
 		F8E423EC1C9BDA64005B8AE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E423EB1C9BDA64005B8AE7 /* main.m */; };
 		F8E423EF1C9BDA64005B8AE7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E423EE1C9BDA64005B8AE7 /* AppDelegate.m */; };
-		F8E423F21C9BDA64005B8AE7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E423F11C9BDA64005B8AE7 /* ViewController.m */; };
 		F8E423F51C9BDA64005B8AE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E423F31C9BDA64005B8AE7 /* Main.storyboard */; };
 		F8E423F71C9BDA64005B8AE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8E423F61C9BDA64005B8AE7 /* Assets.xcassets */; };
 		F8E423FA1C9BDA64005B8AE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E423F81C9BDA64005B8AE7 /* LaunchScreen.storyboard */; };
 		F8E424051C9BDA65005B8AE7 /* sideTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E424041C9BDA65005B8AE7 /* sideTestTests.m */; };
 		F8E424101C9BDA65005B8AE7 /* sideTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E4240F1C9BDA65005B8AE7 /* sideTestUITests.m */; };
-		F8E424231C9BDA9B005B8AE7 /* UIViewController+Side.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E424221C9BDA9B005B8AE7 /* UIViewController+Side.m */; };
 		F8E4242C1C9BDF89005B8AE7 /* SideVc.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E4242B1C9BDF89005B8AE7 /* SideVc.m */; };
 /* End PBXBuildFile section */
 
@@ -44,13 +43,13 @@
 		B42A2B411D61A7D10086ED33 /* HYSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYSideViewController.m; sourceTree = "<group>"; };
 		B42A2B461D61AC300086ED33 /* TwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
 		B42A2B471D61AC300086ED33 /* TwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
+		B45FC9E11D62B50A00CD6FD5 /* RightSideVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightSideVC.h; sourceTree = "<group>"; };
+		B45FC9E21D62B50A00CD6FD5 /* RightSideVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightSideVC.m; sourceTree = "<group>"; };
 		F82501291C9D1C7E00150AE3 /* Objective-C.gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Objective-C.gitignore"; sourceTree = "<group>"; };
 		F8E423E71C9BDA64005B8AE7 /* sideTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sideTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E423EB1C9BDA64005B8AE7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F8E423ED1C9BDA64005B8AE7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F8E423EE1C9BDA64005B8AE7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F8E423F01C9BDA64005B8AE7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F8E423F11C9BDA64005B8AE7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F8E423F41C9BDA64005B8AE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F8E423F61C9BDA64005B8AE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8E423F91C9BDA64005B8AE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,8 +60,6 @@
 		F8E4240B1C9BDA65005B8AE7 /* sideTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sideTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E4240F1C9BDA65005B8AE7 /* sideTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sideTestUITests.m; sourceTree = "<group>"; };
 		F8E424111C9BDA65005B8AE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8E424211C9BDA9B005B8AE7 /* UIViewController+Side.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Side.h"; sourceTree = "<group>"; };
-		F8E424221C9BDA9B005B8AE7 /* UIViewController+Side.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Side.m"; sourceTree = "<group>"; };
 		F8E4242A1C9BDF89005B8AE7 /* SideVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideVc.h; sourceTree = "<group>"; };
 		F8E4242B1C9BDF89005B8AE7 /* SideVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideVc.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,12 +115,12 @@
 				F8E4241D1C9BDA70005B8AE7 /* HYSide */,
 				F8E423ED1C9BDA64005B8AE7 /* AppDelegate.h */,
 				F8E423EE1C9BDA64005B8AE7 /* AppDelegate.m */,
-				F8E423F01C9BDA64005B8AE7 /* ViewController.h */,
-				F8E423F11C9BDA64005B8AE7 /* ViewController.m */,
 				B42A2B461D61AC300086ED33 /* TwoViewController.h */,
 				B42A2B471D61AC300086ED33 /* TwoViewController.m */,
 				F8E4242A1C9BDF89005B8AE7 /* SideVc.h */,
 				F8E4242B1C9BDF89005B8AE7 /* SideVc.m */,
+				B45FC9E11D62B50A00CD6FD5 /* RightSideVC.h */,
+				B45FC9E21D62B50A00CD6FD5 /* RightSideVC.m */,
 				F8E423F31C9BDA64005B8AE7 /* Main.storyboard */,
 				F8E423F61C9BDA64005B8AE7 /* Assets.xcassets */,
 				F8E423F81C9BDA64005B8AE7 /* LaunchScreen.storyboard */,
@@ -163,8 +160,6 @@
 		F8E4241D1C9BDA70005B8AE7 /* HYSide */ = {
 			isa = PBXGroup;
 			children = (
-				F8E424211C9BDA9B005B8AE7 /* UIViewController+Side.h */,
-				F8E424221C9BDA9B005B8AE7 /* UIViewController+Side.m */,
 				B42A2B401D61A7D10086ED33 /* HYSideViewController.h */,
 				B42A2B411D61A7D10086ED33 /* HYSideViewController.m */,
 			);
@@ -307,8 +302,7 @@
 			files = (
 				B42A2B481D61AC300086ED33 /* TwoViewController.m in Sources */,
 				F8E4242C1C9BDF89005B8AE7 /* SideVc.m in Sources */,
-				F8E423F21C9BDA64005B8AE7 /* ViewController.m in Sources */,
-				F8E424231C9BDA9B005B8AE7 /* UIViewController+Side.m in Sources */,
+				B45FC9E31D62B50A00CD6FD5 /* RightSideVC.m in Sources */,
 				F8E423EF1C9BDA64005B8AE7 /* AppDelegate.m in Sources */,
 				B42A2B421D61A7D10086ED33 /* HYSideViewController.m in Sources */,
 				F8E423EC1C9BDA64005B8AE7 /* main.m in Sources */,

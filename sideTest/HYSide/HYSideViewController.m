@@ -9,16 +9,16 @@
 #import "HYSideViewController.h"
 
 @interface HYSideViewController ()
-/** 设置侧滑出来的View */
-@property (weak,nonatomic) UIView * sideView;
-/** 设置侧滑的方向,也决定了sideView是在mainPanelView 的左边还是右边 */
-@property (assign,nonatomic) HYSideDirection sideDirectionType;
-
-@property (nonatomic,strong) UIViewController * sideVC;
+@property (nonatomic,strong) UIView * leftSideView; //左侧滑出的View
+@property (nonatomic,strong) UIView * rightSideView; //右侧划出的View
+@property (nonatomic,strong) UIViewController * leftSideVC; //左侧的控制器
+@property (nonatomic,strong) UIViewController * rightSideVC; //右侧的控制器
+@property (assign,nonatomic) HYSideDirection sideDirectionType; //侧滑的方向
 @end
 
 @implementation HYSideViewController
 
+#pragma mark - 生命周期方法
 - (void)viewDidLoad{
     
     [super viewDidLoad];
@@ -28,34 +28,23 @@
 - (void)viewDidDisappear:(BOOL)animated{
     
     [super viewDidDisappear:animated];
-    self.sideView.hidden = YES;
-}
-
-- (void)setSideView:(UIView *)sideView{
-    
-    _sideView = sideView;
-    [[UIApplication sharedApplication].keyWindow addSubview:sideView];
-}
-
-- (void)setSideDirectionType:(HYSideDirection)sideDirectionType{
-
-    _sideDirectionType = sideDirectionType;
-    CGRect rect = self.sideView.bounds;
-    CGFloat _sideWidth = self.sideView.bounds.size.width;
-    if (sideDirectionType == HYSideDirectionRight) {
-        _sideWidth = rect.size.width;
-        self.sideView.frame = CGRectMake(- rect.size.width, 0, rect.size.width, [UIScreen mainScreen].bounds.size.height);
-    }else{
-        _sideWidth = - rect.size.width;
-        self.sideView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width , 0 , rect.size.width, [UIScreen mainScreen].bounds.size.height);
+    if (self.leftSideVC) {
+        self.leftSideView.hidden = YES;
+    }
+    if (self.rightSideVC) {
+        self.rightSideView.hidden = YES;
     }
 }
 
-- (void)setSideVC:(UIViewController *)sideVC SideDirection:(HYSideDirection)sideDirectionType{
+#pragma mark - 内部方法
+- (UIView *)leftSideView{
     
-    self.sideView = sideVC.view;
-    self.sideDirectionType = sideDirectionType;
-    _sideVC = sideVC;
+    return self.leftSideVC.view;
+}
+
+- (UIView *)rightSideView{
+    
+    return self.rightSideVC.view;
 }
 
 - (void)hy_panGesture:(UIPanGestureRecognizer *)pan{
@@ -63,36 +52,77 @@
     CGPoint translation = [pan translationInView:pan.view];
     
     if (pan.state == UIGestureRecognizerStateChanged) {
+        
         CGPoint point = [self.view convertPoint:self.view.frame.origin toView:[UIApplication sharedApplication].keyWindow];
         if (!self.isSide) {
-            if(_sideDirectionType == HYSideDirectionRight && point.x >= 0 && translation.x < self.sideView.bounds.size.width && translation.x >= 0){
-                self.sideView.hidden = NO;
+            if(self.leftSideVC && point.x >= 0 && translation.x < self.leftSideView.bounds.size.width && translation.x >= 0){
+                
+                _sideDirectionType = HYSideDirectionLeft;
+                self.leftSideView.hidden = NO;
+                [self sideDistance:translation.x];
+            }else if (self.rightSideVC && point.x <= 0 &&  - translation.x < self.rightSideView.bounds.size.width && translation.x <= 0){
+                _sideDirectionType = HYSideDirectionRight;
+                self.rightSideView.hidden = NO;
                 [self sideDistance:translation.x];
             }
         }else {
-            if(_sideDirectionType == HYSideDirectionRight && point.x >= 0  && translation.x <= 0){
-                [self sideDistance:(self.sideView.bounds.size.width + translation.x)];
+            
+            if(self.leftSideVC && point.x >= 0  && translation.x <= 0){
+                _sideDirectionType = HYSideDirectionLeft;
+                [self sideDistance:(self.leftSideView.bounds.size.width + translation.x)];
+            }else if (self.rightSideVC && point.x <= 0 &&  translation.x >= 0){
+                _sideDirectionType = HYSideDirectionRight;
+                self.rightSideView.hidden = NO;
+                [self sideDistance:(- self.rightSideView.bounds.size.width + translation.x)];
             }
         }
         
     }else if (pan.state == UIGestureRecognizerStateEnded) {
+        
         CGPoint point = [self.view convertPoint:self.view.frame.origin toView:[UIApplication sharedApplication].keyWindow];
-        NSLog(@"%@--%f",NSStringFromCGPoint(point),(self.view.transform.tx));
-        if(_sideDirectionType == HYSideDirectionRight && point.x >= 0 && point.x > [UIScreen mainScreen].bounds.size.width * 0.5){
-            [self sideDistance:self.sideView.bounds.size.width];
-            [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-            self.isSide = YES;
+        
+        if (_sideDirectionType != HYSideDirectionRight) {
+            if(point.x >= 0 && point.x >= [UIScreen mainScreen].bounds.size.width * 0.5){
+                
+                [self sideDistance:self.rightSideView.bounds.size.width];
+                [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+                self.isSide = YES;
+            }else{
+                
+                [UIView animateWithDuration:0.25 animations:^{
+                    [self sideDistance:0];
+                }];
+                [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+                self.isSide = NO;
+            }
         }else{
-            [UIView animateWithDuration:0.25 animations:^{
-                [self sideDistance:0];
-            }];
-            [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
-            self.isSide = NO;
+            if( point.x <= 0 && -point.x >= [UIScreen mainScreen].bounds.size.width * 0.5){
+                
+                [self sideDistance:-self.leftSideView.bounds.size.width];
+                [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+                self.isSide = YES;
+            }else{
+                
+                [UIView animateWithDuration:0.25 animations:^{
+                    [self sideDistance:0];
+                }];
+                [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+                self.isSide = NO;
+            }
         }
     }
 }
 
-- (void)sideAnimateDuration:(NSTimeInterval)duration{
+- (void)sideDistance:(CGFloat)distance{
+    
+    for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
+        view.transform = CGAffineTransformMakeTranslation(distance, 0);
+    }
+}
+
+#pragma mark - 对外接口
+
+- (void)sideAnimateDuration:(NSTimeInterval)duration SideDirection:(HYSideDirection)sideDirectionType{
     
     if([UIApplication sharedApplication].statusBarStyle == UIStatusBarStyleDefault){
         [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
@@ -107,25 +137,47 @@
                 view.transform = CGAffineTransformIdentity;
             }
         }completion:^(BOOL finished) {
-            self.sideView.hidden = YES;
+
+            if (sideDirectionType == HYSideDirectionLeft){
+                self.leftSideView.hidden = YES;
+            }else{
+                self.rightSideView.hidden = YES;
+            }
         }];
-        
         return;
     }
     
     self.isSide = YES;
-    self.sideView.hidden = NO;
-    CGFloat _sideWidth = (self.sideDirectionType == HYSideDirectionRight) ? self.sideView.frame.size.width : - self.sideView.frame.size.width;
+    if (sideDirectionType == HYSideDirectionLeft){
+        self.leftSideView.hidden = NO;
+    }else{
+        self.rightSideView.hidden = NO;
+    }
+    CGFloat _sideWidth = (sideDirectionType == HYSideDirectionLeft) ? self.rightSideView.frame.size.width : - self.leftSideView.frame.size.width;
     [UIView animateWithDuration:duration animations:^{
         [self sideDistance:_sideWidth];
     }];
 }
 
-- (void)sideDistance:(CGFloat)distance{
-
-    for (UIView * view in [UIApplication sharedApplication].keyWindow.subviews) {
-        view.transform = CGAffineTransformMakeTranslation(distance, 0);
-    }
+- (void)setLeftSideVC:(UIViewController *)leftSideVC{
+    
+    _leftSideVC = leftSideVC;
+    [[UIApplication sharedApplication].keyWindow addSubview:self.leftSideView];
+    CGRect rect = self.leftSideView.bounds;
+    CGFloat sideWidth = self.leftSideView.bounds.size.width;
+    sideWidth = rect.size.width;
+    self.leftSideView.frame = CGRectMake(- rect.size.width, 0, rect.size.width, [UIScreen mainScreen].bounds.size.height);
 }
+
+- (void)setRightSideVC:(UIViewController *)rightSideVC{
+    
+    _rightSideVC = rightSideVC;
+    [[UIApplication sharedApplication].keyWindow addSubview:self.rightSideView];
+    CGRect rect = self.rightSideView.bounds;
+    CGFloat sideWidth = self.rightSideView.bounds.size.width;
+    sideWidth = rect.size.width;
+    self.rightSideView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width , 0 , rect.size.width, [UIScreen mainScreen].bounds.size.height);;
+}
+
 
 @end

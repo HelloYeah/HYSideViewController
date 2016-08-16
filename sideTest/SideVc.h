@@ -12,6 +12,6 @@
 
 @interface SideVc : UITableViewController
 
-@property (nonatomic,copy)  void(^sideblock)();
+@property (nonatomic,copy)  void(^exitLeftSideblock)();
 
 @end

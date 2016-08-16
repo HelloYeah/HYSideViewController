@@ -33,7 +33,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSLog(@"被点击了第%ld行",indexPath.row);
-    if(self.sideblock) self.sideblock();
+    if(self.exitLeftSideblock) self.exitLeftSideblock();
 }
 
 @end
