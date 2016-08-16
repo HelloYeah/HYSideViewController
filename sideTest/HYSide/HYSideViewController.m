@@ -7,6 +7,7 @@
 //
 
 #import "HYSideViewController.h"
+static CGFloat const kSideDistanceRatio = 0.55; // 滑出0.55倍View的宽度时,松开手指,会自动滑出
 
 @interface HYSideViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic,strong) UIView * leftSideView; //左侧滑出的View
@@ -32,6 +33,10 @@
 - (void)viewDidDisappear:(BOOL)animated{
     
     [super viewDidDisappear:animated];
+    [self hiddenSideView];
+}
+
+- (void)hiddenSideView{
     if (self.leftSideVC) {
         self.leftSideView.hidden = YES;
     }
@@ -39,9 +44,9 @@
         self.rightSideView.hidden = YES;
     }
 }
-
 #pragma mark - 内部方法
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    
     if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
         return YES;
     }
@@ -96,9 +101,9 @@
         CGPoint point = [self.view convertPoint:self.view.frame.origin toView:[UIApplication sharedApplication].keyWindow];
         
         if (_sideDirectionType != HYSideDirectionRight) {
-            if(point.x >= 0 && point.x >= [UIScreen mainScreen].bounds.size.width * 0.5){
+            if(point.x >= 0 && point.x >= self.leftSideView.bounds.size.width * kSideDistanceRatio){
                 
-                [self sideDistance:self.rightSideView.bounds.size.width];
+                [self sideDistance:self.leftSideView.bounds.size.width];
                 [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
                 self.isSide = YES;
             }else{
@@ -110,9 +115,9 @@
                 self.isSide = NO;
             }
         }else{
-            if( point.x <= 0 && -point.x >= [UIScreen mainScreen].bounds.size.width * 0.5){
+            if( point.x <= 0 && -point.x >= self.rightSideView.bounds.size.width * kSideDistanceRatio){
                 
-                [self sideDistance:-self.leftSideView.bounds.size.width];
+                [self sideDistance:-self.rightSideView.bounds.size.width];
                 [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
                 self.isSide = YES;
             }else{
@@ -151,22 +156,18 @@
             }
         }completion:^(BOOL finished) {
 
-            if (sideDirectionType == HYSideDirectionLeft){
-                self.leftSideView.hidden = YES;
-            }else{
-                self.rightSideView.hidden = YES;
-            }
+            [self hiddenSideView];
         }];
         return;
     }
     
     self.isSide = YES;
     if (sideDirectionType == HYSideDirectionLeft){
-        self.leftSideView.hidden = NO;
-    }else{
         self.rightSideView.hidden = NO;
+    }else{
+        self.leftSideView.hidden = NO;
     }
-    CGFloat _sideWidth = (sideDirectionType == HYSideDirectionLeft) ? self.rightSideView.frame.size.width : - self.leftSideView.frame.size.width;
+    CGFloat _sideWidth = (sideDirectionType == HYSideDirectionRight) ? self.leftSideView.frame.size.width : - self.rightSideView.frame.size.width;
     [UIView animateWithDuration:duration animations:^{
         [self sideDistance:_sideWidth];
     }];
