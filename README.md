@@ -18,16 +18,18 @@
 
 2-> 设置侧滑控制器,可只实现一侧,也可以都实现
 
-          /** 设置左侧的控制器 */
-          - (void)setLeftSideVC:(UIViewController *)leftSideVC;
-	  /** 设置右侧的控制器 */
-	  - (void)setRightSideVC:(UIViewController *)rightSideVC;
+	/** 设置左侧的控制器 */
+	- (void)setLeftSideVC:(UIViewController *)leftSideVC;
+	/** 设置右侧的控制器 */
+	- (void)setRightSideVC:(UIViewController *)rightSideVC;
   ---
 ####效果图 
 
 
+
 ![1.gif](http://upload-images.jianshu.io/upload_images/1338042-5a26ed427596500e.gif?imageMogr2/auto-orient/strip)
 
+同时集成左滑和右滑
 
 ![2.gif](http://upload-images.jianshu.io/upload_images/1338042-5d34cc9ebd60c7cd.gif?imageMogr2/auto-orient/strip) 
 
@@ -41,7 +43,7 @@
 1.外界通过调用setter方法,添加侧滑控制器
 
 
-        - (void)setLeftSideVC:(UIViewController *)leftSideVC{
+	- (void)setLeftSideVC:(UIViewController *)leftSideVC{
 	    
 	    _leftSideVC = leftSideVC;
 	    [[UIApplication sharedApplication].keyWindow addSubview:self.leftSideView];
@@ -99,6 +101,7 @@
 3.核心的代码是滑动手势的回调方法,滑动时,根据滑动方向,滑动距离两个条件做相应的事件处理.滑动停止时,同样根据滑动方向,滑动距离两个条件,来判断是否需要将View侧滑出来.
 
 - 手势滑动时
+
 ![手势滑动.png](http://chuantu.biz/t5/28/1471396649x2031068758.png)
 
 
