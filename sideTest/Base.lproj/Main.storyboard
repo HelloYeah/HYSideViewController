@@ -1,28 +1,32 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mME-0G-ZZg">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mME-0G-ZZg">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--第一个-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="第一个" id="BYZ-38-t0r" customClass="OneViewController" sceneMemberID="viewController">
+                <viewController title="第一个" id="BYZ-38-t0r" customClass="TestViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="第一个" id="JaC-GK-iE3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="840" y="219"/>
+            <point key="canvasLocation" x="1492" y="210"/>
         </scene>
         <!--第一个-->
         <scene sceneID="Jab-ys-54g">
@@ -30,7 +34,6 @@
                 <navigationController title="第一个" automaticallyAdjustsScrollViewInsets="NO" id="Uiz-XP-khl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="第一个" id="KRC-Jd-dL7"/>
                     <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MdE-Mi-SST">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -47,50 +50,49 @@
         <!--第二个-->
         <scene sceneID="pRM-tt-Itj">
             <objects>
-                <viewController title="第二个" id="eyZ-2P-tmM" customClass="TwoViewController" sceneMemberID="viewController">
+                <viewController title="第二个" id="eyZ-2P-tmM" customClass="TestViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Df8-VM-IbF"/>
                         <viewControllerLayoutGuide type="bottom" id="mNC-bf-xBu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FI0-TZ-Sgw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.86274509799999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.86274509799999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="第二个" id="E91-cs-Sgr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOM-6O-FTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="987" y="780"/>
+            <point key="canvasLocation" x="1492" y="822"/>
         </scene>
         <!--第三个-->
         <scene sceneID="8Hd-Yj-8Zd">
             <objects>
-                <viewController title="第三个" id="kso-Zq-ykp" customClass="ThreeViewController" sceneMemberID="viewController">
+                <viewController title="第三个" id="kso-Zq-ykp" customClass="TestViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aKI-EH-xnl"/>
                         <viewControllerLayoutGuide type="bottom" id="FST-XL-yzF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="A8w-HY-dWs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.99215686270000003" green="0.47843137250000001" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.9791790246963501" green="0.39172708988189697" blue="0.094094179570674896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="第三个" id="2cs-4z-Zte"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l31-sG-wGk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="987" y="1383"/>
+            <point key="canvasLocation" x="1542" y="1482"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="I2I-ft-bkL">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="mME-0G-ZZg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="D4w-de-zcs">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="Uiz-XP-khl" kind="relationship" relationship="viewControllers" id="jE5-TJ-07t"/>
@@ -100,7 +102,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZC-9l-Dtu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-153" y="763"/>
+            <point key="canvasLocation" x="-858" y="779"/>
         </scene>
         <!--第二个-->
         <scene sceneID="SCs-aL-Q2N">
